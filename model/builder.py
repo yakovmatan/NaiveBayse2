@@ -6,6 +6,7 @@ class NaiveBayes:
         self.class_probs = self.get_class_probs()
         self.feature_probs = {}
         self.classes = df[classified].unique()
+        self.all_val = {}
         self.features = [col for col in df.columns if col != classified]
 
     def get_class_probs(self):
@@ -23,9 +24,13 @@ class NaiveBayes:
 
                 total_cls = len(subset)
                 unique_vals = self.df[feature].unique()
+                self.all_val[feature] = unique_vals
                 smoothed_probs = {
                     val: (val_counts.get(val, 0) + 1) / (total_cls + len(unique_vals))
                     for val in unique_vals
                 }
                 self.feature_probs[feature][cls] = smoothed_probs
+
+    def info_model(self):
+        return [self.feature_probs,self.all_val,self.class_probs]
 
