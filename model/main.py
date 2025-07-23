@@ -20,5 +20,16 @@ def confusion_matrix():
     except Exception as e:
         return {"error": str(e)}
 
+@app.get("/trained_model")
+def trained_model():
+    try:
+        return {'classes': manager.model.classes.tolist(),
+                'class_probs': manager.model.class_probs,
+                'trained_data' : manager.model.feature_probs,
+                'classified' : manager.model.classified
+            }
+    except Exception as e:
+        return {"error": str(e)}
+
 if __name__ == '__main__':
-    uv.run('main:app', host='0.0.0.0', port=8000, reload=True)
+    uv.run('main:app', host='127.0.0.1', port=8000, reload=True)
