@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn as uv
-from prediction import Prediction
-from info_model import InfoModel
+from prediction.prediction import Prediction
+from prediction.info_model import InfoModel
 
 app = FastAPI()
 
