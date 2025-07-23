@@ -1,8 +1,8 @@
-from model.the_model.data_loader import DataLoader
-from model.the_model.cleaner import Cleaner
-from model.the_model.builder import NaiveBayes
-from model.the_model.split_data import split_dataframe
-from model.the_model.valitator import Evaluation
+from the_model.data_loader import DataLoader
+from the_model.cleaner import Cleaner
+from the_model.builder import NaiveBayes
+from the_model.split_data import split_dataframe
+from the_model.valitator import Evaluation
 
 
 class NaiveBayesManager:
