@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 import uvicorn as uv
-from manager import NaiveBayesManager
+from model.manager.manager import NaiveBayesManager
 
 app = FastAPI()
 
-manager = NaiveBayesManager("buy_computer_data.csv", "buys_computer")
+manager = NaiveBayesManager("data/buy_computer_data.csv", "buys_computer")
 
 @app.get("/accuracy")
 def accuracy():
