@@ -3,7 +3,7 @@ import requests
 class InfoModel:
 
     def __init__(self):
-        self.url = "http://127.0.0.1:8000"
+        self.url = "http://my_model:8000"
         self.classes = None
         self.class_probs = None
         self.trained_data = None
