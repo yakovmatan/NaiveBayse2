@@ -24,7 +24,7 @@ class NaiveBayes:
 
                 total_cls = len(subset)
                 unique_vals = self.df[feature].unique()
-                self.all_val[feature] = unique_vals
+                self.all_val[feature] = unique_vals.tolist()
                 smoothed_probs = {
                     val: (val_counts.get(val, 0) + 1) / (total_cls + len(unique_vals))
                     for val in unique_vals

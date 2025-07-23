@@ -45,5 +45,5 @@ class Evaluation:
         y_true, y_pred = self.all_val()
         cm = confusion_matrix(y_true, y_pred, labels=self.classes)
         cm_df = pd.DataFrame(cm, index=self.classes, columns=self.classes)
-        return cm_df
+        return cm_df.to_dict(orient='index')
 
