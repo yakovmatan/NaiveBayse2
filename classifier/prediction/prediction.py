@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 class Prediction:
 
     def __init__(self,classes, class_probs, trained_data, classified):
@@ -10,7 +13,7 @@ class Prediction:
         probs = {}
         for cls in self.classes:
             prob = self.class_probs[cls]
-            for feature, value in row.drop(labels=[self.classified]).items():
+            for feature, value in row.items():
                 val = row[feature]
                 feature_dict = self.trained_data[feature][cls]
                 prob *= feature_dict.get(val)
